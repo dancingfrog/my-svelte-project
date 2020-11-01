@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import livereload from 'rollup-plugin-livereload';
+import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -16,13 +17,29 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+
+		postcss({
+			extract: 'public/global.css',
+			plugins: [],
+			minimize: true,
+			use: [
+				['sass', {
+					includePaths: [
+						'./theme',
+						'./node_modules'
+					]
+				}]
+			]
+		}),
+
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
+			emitCss: true,
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('public/build/bundle.css');
+				css.write('public/main.css', true);
 			}
 		}),
 
