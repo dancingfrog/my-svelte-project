@@ -1,40 +1,27 @@
 <script>
+	import { Router, Route } from "svelte-routing";
 
-	export let name
+	// Auth Layout
+	import Auth from "./layouts/Auth.svelte";
 
-	let buttonText = 'Button'
+	// No Layout Pages
+	import Index from "./views/Index.svelte";
+	import Landing from "./views/Landing.svelte";
+	import Profile from "./views/Profile.svelte";
 
-	function handleClick() {
-		buttonText = 'Button Clicked'
-	}
+	export let name;
+
+	export let url = "";
 
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<Router url="{url}">
 
-	<button on:click="{handleClick}">{buttonText}</button>
-</main>
+	<!-- auth layout -->
+	<Route path="auth/*auth" component="{Auth}" />
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+	<!-- no layout pages -->
+	<Route path="landing" component="{Landing}" />
+	<Route path="profile" component="{Profile}" />
+	<Route path="/" component="{Index}" bind:name />
+</Router>

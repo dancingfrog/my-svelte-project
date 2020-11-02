@@ -19,7 +19,6 @@ export default {
 	plugins: [
 
 		postcss({
-			extract: 'public/global.css',
 			plugins: [],
 			minimize: true,
 			use: [
@@ -39,7 +38,7 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('public/main.css', true);
+				css.write('public/build/bundle.css', true);
 			}
 		}),
 
