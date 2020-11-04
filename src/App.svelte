@@ -64,7 +64,7 @@
 </Router>
 
 {#if (!$auth)}
-	<FooterSmall absolute="true" />
+<FooterSmall absolute="true" />
 {:else}
-	<Footer />
+<Footer />
 {/if}
