@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
+    "build:fontawesome": "mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/css && cp -a ./node_modules/@fortawesome/fontawesome-free/webfonts static/assets/vendor/@fortawesome/fontawesome-free/ && cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
+    "build:tailwind": "tailwind build static/assets/styles/index.css -o static/assets/styles/tailwind.css",
     "dev": "rollup -c -w",
+    "postinstall": "npm run build:fontawesome && npm run build:tailwind",
     "start": "sirv public",
     "test": "jest src",
     "test:watch": "npm run test -- --watch"
@@ -30,9 +33,11 @@
     "svelte": "^3.0.0",
     "svelte-jester": "^1.1.5",
     "svelte-routing": "^1.4.2",
-    "svelte-test-register": "^0.1.0"
+    "svelte-test-register": "^0.1.0",
+    "tailwindcss": "1.8.10"
   },
   "dependencies": {
+    "chart.js": "^2.9.4",
     "sirv-cli": "^0.4.4"
   },
   "jest": {
@@ -42,7 +47,7 @@
       "^.+\\.svelte$": "svelte-jester"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!(@sapper|svelte-routing|svelte-spa-router)/)"
+      "node_modules/(?!(@popperjs|@sapper|svelte-routing|svelte-spa-router)/)"
     ],
     "moduleFileExtensions": [
       "js",

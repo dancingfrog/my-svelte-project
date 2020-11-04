@@ -62,17 +62,38 @@
     </span>
     <a
       use:link
-      href="/landing"
+      href="/dashboard"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
     >
-      Lading
+      Dashboard
     </a>
     <a
       use:link
-      href="/profile"
+      href="/settings"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
     >
-      Profile
+      Settings
+    </a>
+    <a
+      use:link
+      href="/tables"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+    >
+      Tables
+    </a>
+    <a
+      use:link
+      href="/"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+    >
+      Home
+    </a>
+    <a
+      use:link
+      href="/landing"
+      class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+    >
+      Landing
     </a>
   </div>
 </div>

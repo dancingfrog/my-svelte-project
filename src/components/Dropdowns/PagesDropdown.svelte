@@ -63,17 +63,17 @@
     </span>
     <a
       use:link
-      href="/landing"
+      href="/"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
     >
-      Lading
+      Home
     </a>
     <a
       use:link
-      href="/profile"
+      href="/landing"
       class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
     >
-      Profile
+      Landing
     </a>
   </div>
 </div>

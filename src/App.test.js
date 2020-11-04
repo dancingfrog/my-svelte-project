@@ -5,15 +5,23 @@ import { render, fireEvent } from '@testing-library/svelte'
 
 import App from './App.svelte'
 
-test('shows proper heading when rendered', () => {
-    const { getByText } = render(App, { name: 'World' })
+jest.setTimeout(30000);
 
-    expect(getByText('Hello World!')).toBeInTheDocument()
+test('shows proper heading when rendered', done => {
+    setTimeout(() => {
+        try {
+            const {getByText} = render(App, { authenticated: true, name: 'World'})
+            expect(getByText('Hello World!')).toBeInTheDocument()
+            done();
+        } catch (error) {
+            done(error);
+        }
+    }, 5333);
 })
 
 // Note: This is as an async test as we are using `fireEvent`
 test('changes button text on click', async () => {
-    const { getByText } = render(App, { name: 'World' })
+    const { getByText } = render(App, { authenticated: true, name: 'World'})
     const button = getByText('Button')
 
     // Using await when firing events is unique to the svelte testing library because
