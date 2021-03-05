@@ -1,5 +1,7 @@
 <script>
+  import { tick, afterUpdate } from 'svelte';
   import { Link } from "svelte-routing";
+  import Modal from "../components/Modal.svelte";
 
   const patternVue = "/assets/img/pattern_svelte.png";
   const componentBtn = "/assets/img/component-btn.png";
@@ -16,11 +18,48 @@
 
   export let name;
 
-  let buttonText = 'Button';
+  let buttonText = 'Test Button';
 
-  function handleClick() {
+  let products = [
+    {
+      id: "p1",
+      title: "A book",
+      price: 9.99
+    }
+  ];
+
+  let closeable = false;
+  let showModal = false;
+
+  let text = 'This is some dummy text!';
+
+  let handleClick = () => {
     buttonText = 'Button Clicked';
-  }
+  };
+
+  let transform = (event) => {
+    if (event.which !== 9) {
+      return;
+    }
+    event.preventDefault();
+
+    const selectionStart = event.target.selectionStart;
+    const selectionEnd = event.target.selectionEnd;
+    const value = event.target.value
+
+    text = value.slice(0, selectionStart) +
+            value.slice(selectionStart, selectionEnd).toUpperCase() +
+            value.slice(selectionEnd);
+
+    tick().then(() => {
+      event.target.selectionStart = selectionStart;
+      event.target.selectionEnd = selectionEnd;
+    });
+
+    // Will not work!
+    //   event.target.selectionStart = selectionStart;
+    //   event.target.selectionEnd = selectionEnd;
+  };
 </script>
 
 <style>
@@ -38,6 +77,11 @@
     font-weight: 100;
   }
 
+  label.tick-transform {
+    border: 1px solid gray;
+    border-radius: 2px 2px;
+  }
+
   @media (min-width: 640px) {
     main {
       max-width: none;
@@ -50,6 +94,31 @@
   <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 
   <button on:click="{handleClick}">{buttonText}</button>
+
+  <button on:click={() => (showModal = true)}>Show Modal</button>
+
+  <br /><br />
+
+  {#if showModal}
+    <Modal let:didAgree={closeable}
+           on:cancel={() => (showModal = false)}
+           on:close={() => (showModal = false)}>
+      <h1 slot="header">Hello!</h1>
+      <p>This works!</p>
+      <span slot="footer">
+        {#if closeable}
+          <button on:click={() => (showModal = false)}>Confirm</button>
+        {:else}
+          <button on:click={() => (showModal = false)} disabled>Confirm</button>
+        {/if}
+      </span>
+    </Modal>
+  {/if}
+
+  <label class="tick-transform">
+    Tick Transform<br />
+    <textarea rows="5" value={text} on:keydown={transform}></textarea>
+  </label>
 </main>
 
 <section class="header relative pt-16 items-center flex h-screen max-h-860-px">
