@@ -4,10 +4,10 @@
   "scripts": {
     "build": "rollup -c",
     "build:fontawesome": "mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/css && cp -a ./node_modules/@fortawesome/fontawesome-free/webfonts static/assets/vendor/@fortawesome/fontawesome-free/ && cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
-    "build:tailwind": "tailwind build static/assets/styles/index.css -o static/assets/styles/tailwind.css",
+    "build:tailwind": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
     "dev": "rollup -c -w",
     "postinstall": "npm run build:fontawesome && npm run build:tailwind",
-    "start": "sirv public",
+    "start": "http-server -p 3000 public",
     "test": "jest src",
     "test:watch": "npm run test -- --watch"
   },
@@ -21,6 +21,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/svelte": "^3.0.0",
     "babel-jest": "^26.3.0",
+    "http-server": "git+https://github.com/Real-Currents/http-server-cgi.git",
     "jest": "^26.4.2",
     "jest-dom": "^4.0.0",
     "rollup": "^2.32.0",
@@ -34,10 +35,11 @@
     "svelte-jester": "^1.1.5",
     "svelte-routing": "^1.4.2",
     "svelte-test-register": "^0.1.0",
-    "tailwindcss": "1.8.10"
+    "tailwindcss": "^1.8.10"
   },
   "dependencies": {
     "chart.js": "^2.9.4",
+    "npx": "^10.2.2",
     "sirv-cli": "^0.4.4"
   },
   "jest": {
