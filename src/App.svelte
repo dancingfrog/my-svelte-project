@@ -20,7 +20,11 @@
 	import Index from "./views/Index.svelte";
 	import Landing from "./views/Landing.svelte";
 
-	export let authenticated = false;
+	export let DEV = false; // set to true when developing
+
+	export let skip = true; // set to true to auto-login when not developing
+
+	export let authenticated = skip || DEV;
 
 	export let auth = writable(authenticated);
 
@@ -30,14 +34,19 @@
 
 	onMount(async () => {
 		if (!$auth) {
+			// Start on the login page
 			navigate("/auth/login", { replace: false });
 		}
-		setTimeout(() => {
-			if (!$auth) {
-				auth.set(true);
-				navigate("/", { replace: true });
-			}
-		}, 5333);
+
+		if (!!DEV && !skip) {
+			setTimeout(() => {
+				if (!$auth) {
+					// After timeout, set auth to true and redirect
+					auth.set(true);
+					navigate("/", {replace: true});
+				}
+			}, 5333);
+		}
 	});
 
 </script>
