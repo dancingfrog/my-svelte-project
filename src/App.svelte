@@ -20,7 +20,7 @@
 	import Index from "./views/Index.svelte";
 	import Landing from "./views/Landing.svelte";
 
-	export let DEV = false; // set to true when developing
+	export let DEV = true; // set to true when developing
 
 	export let skip = true; // set to true to auto-login when not developing
 
