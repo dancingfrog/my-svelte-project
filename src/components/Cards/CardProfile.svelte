@@ -3,12 +3,20 @@
   const team2 = "../assets/img/team-2-800x800.jpg";
 </script>
 
+<style>
+  @import url('../../styles/tailwind.css');
+
+  div.flex div.px-6 div.mt-10.py-10 {
+    height: 18rem;
+  }
+</style>
+
 <div
   class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16"
 >
   <div class="px-6">
     <div class="flex flex-wrap justify-center">
-      <div class="w-full px-4 flex justify-center">
+      <div class="mt-16 w-full px-4 flex justify-center">
         <div class="relative">
           <img
             alt="..."
@@ -74,7 +82,7 @@
             records all of his own music, giving it a warm, intimate feel with a
             solid groove structure. An artist of considerable range.
           </p>
-          <a href="#pablo" on:click={(e) => e.preventDefault()} class="font-normal text-red-500">
+          <a href="#show" on:click={(e) => e.preventDefault()} class="font-normal text-red-500">
             Show more
           </a>
         </div>

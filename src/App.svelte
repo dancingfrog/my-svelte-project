@@ -69,7 +69,10 @@
 
 	<!-- no layout pages -->
 	<Route path="landing" component="{Landing}" />
-	<Route path="/" component="{Index}" bind:name />
+	<Route path="home" component="{Index}" bind:name />
+
+	<!-- DEV -->
+	<Route path="/" component="{Settings}" />
 </Router>
 
 {#if (!$auth)}
