@@ -1,3 +1,24 @@
+<script>
+  import CustomInput from "./CustomInput.svelte";
+  import Toggle from './Toggle.svelte';
+
+  let val = "Max";
+  let selectedOption = 1;
+
+  $: console.log(val);
+  $: console.log(selectedOption);
+
+  function setValue(event) {
+    val = event.target.value;
+  }
+</script>
+
+<!-- <input type="text" value={val} on:input={setValue}> -->
+<!-- <input type="text" bind:value={val} /> -->
+<CustomInput bind:val={val} />
+
+<Toggle bind:chosenOption={selectedOption} />
+
 <div
   class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-200 border-0"
 >
