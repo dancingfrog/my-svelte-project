@@ -630,16 +630,16 @@
 
           <div class="w-full lg:w-4/12 px-4">
             <h5 class="text-xl font-semibold pb-4 text-center">
-              Profile Page
+              Landing Page
             </h5>
-            <Link to="/profile">
+            <Link to="/landing">
               <div
-                class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
+                      class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
               >
                 <img
-                  alt="..."
-                  class="align-middle border-none max-w-full h-auto rounded-lg"
-                  src="{profile}"
+                        alt="..."
+                        class="align-middle border-none max-w-full h-auto rounded-lg"
+                        src="{landing}"
                 />
               </div>
             </Link>
@@ -647,16 +647,16 @@
 
           <div class="w-full lg:w-4/12 px-4">
             <h5 class="text-xl font-semibold pb-4 text-center">
-              Landing Page
+              Settings Page
             </h5>
-            <Link to="/landing">
+            <Link to="/settings">
               <div
                 class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
               >
                 <img
                   alt="..."
                   class="align-middle border-none max-w-full h-auto rounded-lg"
-                  src="{landing}"
+                  src="{profile}"
                 />
               </div>
             </Link>

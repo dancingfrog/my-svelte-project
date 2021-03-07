@@ -209,7 +209,7 @@
           <a
             use:link
             class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-            href="/profile"
+            href="/settings"
           >
             <i class="fas fa-user-circle text-gray-400 mr-2 text-sm"></i>
             Profile Page
