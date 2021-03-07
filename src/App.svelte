@@ -69,6 +69,9 @@
 
 	<!-- no layout pages -->
 	<Route path="landing" component="{Landing}" />
+	<Route path="home" component="{Index}" bind:name />
+
+	<!-- DEV -->
 	<Route path="/" component="{Index}" bind:name />
 </Router>
 

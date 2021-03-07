@@ -58,6 +58,7 @@ export default {
 			targets: [
 				{ src: 'src/data', dest: 'public/' },
 				{ src: 'src/images', dest: 'public/' },
+				{ src: 'src/styles/*.css', dest: 'public/styles/' },
 				{ src: 'src/styles/imports', dest: 'public/' },
 				{ src: 'static/*', dest: 'public/' }
 			]
