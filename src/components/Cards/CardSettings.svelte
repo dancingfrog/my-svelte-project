@@ -175,8 +175,7 @@
               type="text"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               rows="4"
-              value="A beautiful UI Kit and Admin for Svelte & Tailwind CSS. It is Free
-                and Open Source."
+              value="A beautiful UI Kit and Admin for Svelte & Tailwind CSS. It is Free and Open Source."
             />
           </div>
         </div>
