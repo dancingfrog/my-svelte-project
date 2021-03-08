@@ -13,24 +13,19 @@
   }
 </script>
 
-<!-- <input type="text" value={val} on:input={setValue}> -->
-<!-- <input type="text" bind:value={val} /> -->
-<CustomInput bind:val={val} />
-
-<Toggle bind:chosenOption={selectedOption} />
-
 <div
   class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-200 border-0"
 >
   <div class="rounded-t bg-white mb-0 px-6 py-6">
     <div class="text-center flex justify-between">
       <h6 class="text-gray-800 text-xl font-bold">My account</h6>
-      <button
-        class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-        type="button"
-      >
-        Settings
-      </button>
+
+      <!-- <input type="text" value={val} on:input={setValue}> -->
+      <!-- <input type="text" bind:value={val} /> -->
+      <CustomInput class="mr-1" bind:val={val} />
+
+      <Toggle class="mr-1" bind:chosenOption={selectedOption} />
+
     </div>
   </div>
   <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -196,8 +191,7 @@
               type="text"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               rows="4"
-              value="A beautiful UI Kit and Admin for Svelte & Tailwind CSS. It is Free and Open Source."
-            />
+              value="A beautiful UI Kit and Admin for Svelte & Tailwind CSS. It is Free and Open Source."></textarea>
           </div>
         </div>
       </div>

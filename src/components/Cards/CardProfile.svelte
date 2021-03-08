@@ -4,10 +4,23 @@
 </script>
 
 <style>
-  @import url('../../styles/tailwind.css');
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  /*@import url('../../styles/tailwind.css');*/
 
   div.flex div.px-6 div.mt-10.py-10 {
     height: 18rem;
+  }
+
+  div.flex div.px-6 div.mt-10.py-10 div {
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  div.flex div.px-6 div.mt-10.py-10 div div {
+    height: 100%;
+    overflow-y: auto;
   }
 </style>
 
