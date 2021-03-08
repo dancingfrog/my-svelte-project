@@ -24,6 +24,7 @@
 </script>
 
 <style>
+
   main {
     text-align: center;
     padding: 64px 1em 1em;
@@ -45,33 +46,41 @@
   }
 </style>
 
-<main>
-  <h1>Hello {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-
-  <button on:click="{handleClick}">{buttonText}</button>
-</main>
-
 <section class="header relative pt-16 items-center flex h-screen max-h-860-px">
   <div class="container mx-auto items-center flex flex-wrap">
     <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
       <div class="pt-32 sm:pt-0">
-        <h2 class="font-semibold text-4xl text-gray-700">
-          Notus Svelte - A beautiful extension for Tailwind CSS.
-        </h2>
-        <p class="mt-4 text-lg leading-relaxed text-gray-600">
-          Notus Svelte is Free and Open Source. It does not change or
-          add any CSS to the already one from
-          <a
-            href="https://tailwindcss.com/?ref=creativetim"
-            class="text-gray-700"
-            target="_blank"
-          >
-            Tailwind CSS
-          </a>
-          . It features multiple HTML elements and it comes with dynamic
-          components for ReactJS, Vue and Angular.
-        </p>
+
+        <main>
+          <h1>Hello {name}!</h1>
+
+          <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+          <br /><br /><br />
+
+          <button on:click="{handleClick}">{buttonText}</button>
+
+          <br /><br /><br />
+
+          <h2 class="font-semibold text-4xl text-gray-700">
+            Notus Svelte - A beautiful extension for Tailwind CSS.
+          </h2>
+
+          <p class="mt-4 text-lg leading-relaxed text-gray-600">
+            Notus Svelte is Free and Open Source. It does not change or
+            add any CSS to the already one from
+            <a
+                    href="https://tailwindcss.com/?ref=creativetim"
+                    class="text-gray-700"
+                    target="_blank"
+            >
+              Tailwind CSS
+            </a>
+            . It features multiple HTML elements and it comes with dynamic
+            components for ReactJS, Vue and Angular.
+          </p>
+        </main>
+
         <div class="mt-12">
           <a
             href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus?ref=ns-index"

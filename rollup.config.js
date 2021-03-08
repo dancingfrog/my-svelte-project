@@ -4,6 +4,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import copy from 'rollup-plugin-copy';
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
+// import postcss from 'postcss';
+import postcssImport from 'postcss-import';
+import postcssCssnext from 'postcss-cssnext';
 import { terser } from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -39,6 +42,46 @@ export default {
 			// a separate file - better for performance
 			css: css => {
 				css.write('public/build/bundle.css', true);
+			},
+
+			preprocess: {
+				style: ({ content, attributes }) => {
+					if (attributes.type !== 'text/postcss') return;
+
+					return new Promise((fulfil, reject) => {
+						const plugins = [ postcssImport, postcssCssnext ];
+						const from = 'src';
+
+						postcss({
+							plugins: plugins,
+							minimize: true,
+							use: [[
+								'sass',
+								{
+									includePaths: [
+										from,
+										'./theme',
+										'./node_modules'
+									]
+								}
+							]]
+						});
+						// postcss(plugins)
+						// 	.process(content, {
+						// 		from,
+						// 		map: {
+						// 			inline: false
+						// 		}
+						// 	})
+						// 	.then(result => {
+						// 		fulfil({
+						// 			code: result.css.toString(),
+						// 			map: result.map.toString()
+						// 		});
+						// 	})
+						// 	.catch(err => reject(err));
+					});
+				}
 			}
 		}),
 
