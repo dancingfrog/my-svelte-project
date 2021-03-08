@@ -22,9 +22,9 @@
 
       <!-- <input type="text" value={val} on:input={setValue}> -->
       <!-- <input type="text" bind:value={val} /> -->
-      <CustomInput class="mr-1" bind:val={val} />
+      <CustomInput bind:val={val} />
 
-      <Toggle class="mr-1" bind:chosenOption={selectedOption} />
+      <Toggle bind:chosenOption={selectedOption} />
 
     </div>
   </div>

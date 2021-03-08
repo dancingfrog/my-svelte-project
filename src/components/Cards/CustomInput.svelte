@@ -2,4 +2,4 @@
     export let val;
 </script>
 
-<input type="text" bind:value={val}>
+<input class="mr-1" type="text" bind:value={val}>
