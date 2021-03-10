@@ -18,7 +18,7 @@
   @tailwind components;
   @tailwind utilities;
 
-  @media (max-width: 641px) {
+  @media (max-width: 640px) {
     div.flex.flex-col div.px-6.py-6 div.flex {
       flex-direction: column;
     }
