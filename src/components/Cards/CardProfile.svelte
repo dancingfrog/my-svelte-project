@@ -7,7 +7,6 @@
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
-  /*@import url('../../styles/tailwind.css');*/
 
   div.flex div.px-6 div.mt-10.py-10 {
     height: 18rem;
@@ -21,6 +20,22 @@
   div.flex div.px-6 div.mt-10.py-10 div div {
     height: 100%;
     overflow-y: auto;
+  }
+
+  @media (max-width: 640px) {
+    div.flex div.px-6 div.mt-10.py-10 {
+      height: 100%;
+      overflow-y: visible;
+    }
+    div.flex div.px-6 div.mt-10.py-10 div {
+      height: auto;
+      overflow-y: visible;
+    }
+
+    div.flex div.px-6 div.mt-10.py-10 div div {
+      height: auto;
+      overflow-y: visible;
+    }
   }
 </style>
 

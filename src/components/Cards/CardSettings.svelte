@@ -13,6 +13,18 @@
   }
 </script>
 
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @media (max-width: 641px) {
+    div.flex.flex-col div.px-6.py-6 div.flex {
+      flex-direction: column;
+    }
+  }
+</style>
+
 <div
   class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-200 border-0"
 >
@@ -20,11 +32,13 @@
     <div class="text-center flex justify-between">
       <h6 class="text-gray-800 text-xl font-bold">My account</h6>
 
-      <!-- <input type="text" value={val} on:input={setValue}> -->
-      <!-- <input type="text" bind:value={val} /> -->
-      <CustomInput bind:val={val} />
+      <div class="flex right-auto">
+        <!-- <input type="text" value={val} on:input={setValue}> -->
+        <!-- <input type="text" bind:value={val} /> -->
+        <CustomInput bind:val={val} />
 
-      <Toggle bind:chosenOption={selectedOption} />
+        <Toggle bind:chosenOption={selectedOption} />
+      </div>
 
     </div>
   </div>
