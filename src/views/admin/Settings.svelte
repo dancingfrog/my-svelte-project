@@ -10,7 +10,6 @@
   @tailwind components;
   @tailwind utilities;
 
-
   main {
     max-width: none;
     margin: 0 auto;
