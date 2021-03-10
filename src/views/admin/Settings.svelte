@@ -6,11 +6,15 @@
 </script>
 
 <style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
   main {
-    text-align: center;
-    padding: 4em 1em;
-    max-width: 240px;
+    max-width: none;
     margin: 0 auto;
+    padding: 4em 1em;
+    text-align: center;
   }
 
   h1 {
@@ -20,20 +24,21 @@
     font-weight: 100;
   }
 
-  @media (min-width: 640px) {
+  @media (max-width: 640px) {
     main {
-      max-width: none;
+      max-width: 300px;
+      padding: 1em 0;
     }
   }
 </style>
 
 <main>
   <div class="flex flex-wrap">
-    <div class="w-full lg:w-8/12 px-4">
-      <CardSettings />
-    </div>
     <div class="w-full lg:w-4/12 px-4">
       <CardProfile />
+    </div>
+    <div class="w-full lg:w-8/12 px-4">
+      <CardSettings />
     </div>
   </div>
 </main>
