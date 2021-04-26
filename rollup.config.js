@@ -22,16 +22,50 @@ export default {
 	plugins: [
 
 		postcss({
+			// inject?:
+			// | boolean
+			// | { [key: string]: any }
+			// | ((cssVariableName: string, id: string) => string);
+			// extract?: boolean | string;
+			// onExtract?: onExtract;
+			// modules?: boolean | { [key: string]: any };
+			// extensions?: string[];
+			// plugins?: any[];
 			plugins: [],
+			// autoModules?: boolean;
+			// namedExports?: boolean | ((id: string) => string);
+			// minimize?: boolean | any;
 			minimize: true,
-			use: [
-				['sass', {
+			// parser?: string | FunctionType;
+			// stringifier?: string | FunctionType;
+			// syntax?: string | FunctionType;
+			// exec?: boolean;
+			// config?:
+			// | boolean
+			// | {
+			// 	path: string;
+			// 	ctx: any;
+			// };
+			// to?: string;
+			// name?: any[] | any[][];
+			// loaders?: any[];
+			// onImport?: (id: string) => void;
+			// use?: string[] | { [key in 'sass' | 'stylus' | 'less']: any };
+			use: {
+				'sass': {
 					includePaths: [
 						'./theme',
 						'./node_modules'
 					]
-				}]
-			]
+				}
+			},
+			// /**
+			//  * @default: false
+			//  **/
+			// sourceMap?: boolean | 'inline';
+			sourceMap: true
+			// include?: Parameters<CreateFilter>[0];
+			// exclude?: Parameters<CreateFilter>[1];
 		}),
 
 		svelte({
@@ -53,33 +87,51 @@ export default {
 						const from = 'src';
 
 						postcss({
-							plugins: plugins,
+							// inject?:
+							// | boolean
+							// | { [key: string]: any }
+							// | ((cssVariableName: string, id: string) => string);
+							// extract?: boolean | string;
+							// onExtract?: onExtract;
+							// modules?: boolean | { [key: string]: any };
+							// extensions?: string[];
+							// plugins?: any[];
+							plugins: [],
+							// autoModules?: boolean;
+							// namedExports?: boolean | ((id: string) => string);
+							// minimize?: boolean | any;
 							minimize: true,
-							use: [[
-								'sass',
-								{
+							// parser?: string | FunctionType;
+							// stringifier?: string | FunctionType;
+							// syntax?: string | FunctionType;
+							// exec?: boolean;
+							// config?:
+							// | boolean
+							// | {
+							// 	path: string;
+							// 	ctx: any;
+							// };
+							// to?: string;
+							// name?: any[] | any[][];
+							// loaders?: any[];
+							// onImport?: (id: string) => void;
+							// use?: string[] | { [key in 'sass' | 'stylus' | 'less']: any };
+							use: {
+								'sass': {
 									includePaths: [
-										from,
 										'./theme',
 										'./node_modules'
 									]
 								}
-							]]
+							},
+							// /**
+							//  * @default: false
+							//  **/
+							// sourceMap?: boolean | 'inline';
+							sourceMap: true
+							// include?: Parameters<CreateFilter>[0];
+							// exclude?: Parameters<CreateFilter>[1];
 						});
-						// postcss(plugins)
-						// 	.process(content, {
-						// 		from,
-						// 		map: {
-						// 			inline: false
-						// 		}
-						// 	})
-						// 	.then(result => {
-						// 		fulfil({
-						// 			code: result.css.toString(),
-						// 			map: result.map.toString()
-						// 		});
-						// 	})
-						// 	.catch(err => reject(err));
 					});
 				}
 			}

@@ -1,16 +1,6 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c",
-    "build:fontawesome": "mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/css && cp -a ./node_modules/@fortawesome/fontawesome-free/webfonts static/assets/vendor/@fortawesome/fontawesome-free/ && cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
-    "build:tailwind": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
-    "dev": "rollup -c -w",
-    "postinstall": "npm run build:fontawesome && npm run build:tailwind",
-    "start": "http-server -p 3000 public",
-    "test": "jest src",
-    "test:watch": "npm run test -- --watch"
-  },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -65,5 +55,14 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ]
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:fontawesome": "bash -c 'mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/css && cp -a node_modules/@fortawesome/fontawesome-free/webfonts static/assets/vendor/@fortawesome/fontawesome-free/ && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css'",
+    "build:tailwind": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
+    "dev": "rollup -c -w",
+    "start": "http-server -p 3000 public",
+    "test": "jest src",
+    "test:watch": "npm run test -- --watch"
   }
 }
