@@ -1,16 +1,6 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c",
-    "build:fontawesome": "mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/css && cp -a ./node_modules/@fortawesome/fontawesome-free/webfonts static/assets/vendor/@fortawesome/fontawesome-free/ && cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
-    "build:tailwind": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
-    "dev": "rollup -c -w",
-    "postinstall": "npm run build:fontawesome && npm run build:tailwind",
-    "start": "http-server -p 3000 public",
-    "test": "jest src",
-    "test:watch": "npm run test -- --watch"
-  },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -33,7 +23,8 @@
     "rollup-plugin-postcss": "^3.1.8",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^7.0.2",
-    "svelte": "^3.0.0",
+    "sirv": "^1.0.19",
+    "svelte": "3.26.0",
     "svelte-jester": "^1.1.5",
     "svelte-routing": "^1.4.2",
     "svelte-test-register": "^0.1.0",
@@ -42,7 +33,7 @@
   "dependencies": {
     "chart.js": "^2.9.4",
     "npx": "^10.2.2",
-    "sirv-cli": "^0.4.4"
+    "sirv-cli": "1.0.6"
   },
   "jest": {
     "transform": {
@@ -65,5 +56,16 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ]
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:fontawesome": "mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p static/assets/vendor/@fortawesome/fontawesome-free/css && cp -a ./node_modules/@fortawesome/fontawesome-free/webfonts static/assets/vendor/@fortawesome/fontawesome-free/ && cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
+    "build:tailwind": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
+    "dev": "rollup -c -w",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf public/build && npm install",
+    "postinstall": "npm run build:fontawesome && npm run build:tailwind",
+    "start": "sirv public -s",
+    "test": "jest src",
+    "test:watch": "npm run test -- --watch"
   }
 }
