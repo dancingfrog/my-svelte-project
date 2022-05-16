@@ -64,7 +64,7 @@
     "dev": "rollup -c -w",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf public/build && npm install",
     "postinstall": "npm run build:fontawesome && npm run build:tailwind",
-    "start": "sirv public -s",
+    "start": "sirv public --host -p 5000 -s",
     "test": "jest src",
     "test:watch": "npm run test -- --watch"
   }
